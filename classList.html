@@ -50,8 +50,9 @@
 
     <script>
         $(document).ready(function () {
+            var subject = "_HANNAH"
             $.ajax({
-                url: "http://127.0.0.1:1224/classList.csv",
+                url: "http://127.0.0.1:1224/read/"+ subject.split('.')[0],
                 dataType: "text",
                 method: "get",
                 error: function (e) {
@@ -59,9 +60,9 @@
                 },
                 success: function (data) {
                     var students_data = data.split("\n");
-                    $('#subject').text((students_data[0]).toUpperCase())
+                    $('#subject').text(subject.split('.')[0].toUpperCase())
                     var classname = data.classname;
-                    for (var count = 1; count < students_data.length; count++) {
+                    for (var count = 0; count < students_data.length; count++) {
                         var cell_data = students_data[count].split(",");
                         console.log(students_data[count].split(","))
                         var th = $("<tr>");
