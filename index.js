@@ -24,7 +24,6 @@ http.createServer(function (req, res) {
     ajaxResponse.ajaxResponse(res)
 
   } else if (path.split("/")[1] == "enroll") {
-
     if (api.enroll(req) == true) {
       res.end("1");
     }
